@@ -1,14 +1,11 @@
 #!/bin/bash
 
 # Git repo location
-repo_root="~/ANB_Repo" #replace with the root of your ANB Git repository
+repo_root="~/ANB_Repo/ANB" #replace with the root of your ANB Git repository
 
 trap 'echo "# $BASH_COMMAND"' DEBUG
 #Install base requirements
 apt-get install python3-pip python3-virtualenv python3-setuptools python3-dev build-essential python3 nginx-light gunicorn
-python3 --version
-virtualenv --version
-nginx -v
 
 mkdir -p /opt/contacts_proj/
 mkdir -p /opt/contacts_proj/venv && cd /opt/contacts_proj/venv
@@ -23,6 +20,13 @@ mkdir -p /var/cache/contacts_proj/static
 mkdir -p /var/opt/contacts_proj/media
 chown DDjUser /var/opt/contacts_proj/media
 chown DDjUser /var/cache/contacts_proj/static/
+
+#Setup config files
+cp ""$repo_root/conf/contacts_proj /etc/opt/
+cp ""$repo_root/conf/nginx/* /etc/nginx/sites-available/
+cp ""$repo_root/conf/gunicorn/* /etc/systemd/system/
+
+
 
 #cd /opt/contacts_proj/venv
 #source bin/activate
