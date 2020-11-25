@@ -38,7 +38,7 @@ chown DDjUser /var/opt/contacts_proj
 
 cd /opt/contacts_proj/venv
 source bin/activate
-pip install -r requirements.txt
+pip install -r /var/opt/contacts_proj/requirements.txt
 
 
 trap - DEBUG
