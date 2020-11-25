@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul>
+  <li><i>First Name:</i> <b>{{ object.fname }}</b></li>
+  <li><i>Last Name:</i>  <b>{{ object.lname }}</b></li>
+  <li><i>Email:</i>  <b>{{ object.email}}</b></li>
+  <li><i>Street Address:</i>  <b>{{ object.street_addr}}</b></li>
+  <li><i>City:</i>  <b>{{ object.city}}</b></li>
+  <li><i>State:</i>  <b>{{ object.state}}</b></li>
+  <li><i>Zip Code:</i>  <b>{{ object.zip_code}}</b></li>
+  <li><i>Phone Number:</i>  <b>{{ object.phone}}</b></li>
+  <li><i># of Years Participated:</i>  <b>{{ object.years_participated}}</b></li>
+  <li><i>Subscribe to Project Updates?:</i>  <b>{{ object.project_updates}}</b></li>
+  <li><i>Subscribe to News Events?:</i>  <b>{{ object.news_events}}</b></li>
+  <li><i>Communications Preferences (E=Email, P=Phone, M=Mail, T=Text):</i>  <b>{{ object.comm_pref}}</b></li>
+  <li><i>Date Contact Created:</i>  <b>{{ object.created}}</b></li>
+  <li><i>Unsubscribed?:</i>  <b>{{ object.unsubscribe}}</b></li>
+</ul>
+<a class="btn btn-primary" href="change" role="button">Edit my contact information</a><br><br>
+<b>Please add more alumni contacts to our system so we can keep in touch with them as well.<b><br>
+<a class="btn btn-primary" href="/contactforms_app/create" role="button">Add an alumnus</a>
+{% endblock %}

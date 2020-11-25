@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap4 %}
+
+<div class="form-group">
+  <form method='POST'>{% csrf_token %}
+  <h2>Alumni Information</h2><br>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        {{form.fname.label_tag}}<br>
+        {{form.fname}}
+      </div>
+      <div class="form-group col-md-4">
+        {{form.lname.label_tag}}<br>
+        {{form.lname}}
+      </div>
+      <div class="form-group col-md-4">
+        {{form.email.label_tag}}<br>
+        {{form.email}}
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        {{form.street_addr.label_tag}}<br>
+        {{form.street_addr}}
+      </div>
+      <div class="form-group col-md-4">
+        {{form.city.label_tag}}<br>
+        {{form.city}}
+      </div>
+      <div class="form-group col-md-2">
+        {{form.state.label_tag}}<br>
+        {{form.state}}
+      </div>
+      <div class="form-group col-md-2">
+        {{form.zip_code.label_tag}}<br>
+        {{form.zip_code}}
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        {{form.phone.label_tag}}<br>
+        {{form.phone}}
+      </div>
+      <div class="form-group col-md-6">
+        {{form.years_participated.label_tag}}<br>
+        {{form.years_participated}}
+      </div>
+    </div>
+  <br>
+  <h2>Communications</h2><br>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        {{form.comm_pref.label_tag}}<br>
+        {{form.comm_pref}}<br>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-check col-md-6">
+        {{form.project_updates.label_tag}}<br>
+        {{form.project_updates}}
+      </div>
+      <div class="form-check col-md-6">
+        {{form.news_events.label_tag}}<br>
+        {{form.news_events}}
+      </div>
+    </div>
+    <br>
+    <div class="form-row">
+      <div class="form-check col-md-6">
+        {{form.unsubscribe.label_tag}}<br>
+        {{form.unsubscribe}}
+      </div>
+    </div>
+    <br>
+      <input type='submit' value='Save' />
+  </form>
+</div>
+{% endblock %}
