@@ -14,12 +14,10 @@ virtualenv -p python3 .
 useradd -p --system --home-dir=/var/opt/contacts_proj --no-create-home --shell=/bin/bash DDjUser
 mkdir -p /var/opt/contacts_proj
 mkdir -p /var/log/contacts_proj
-chown DDjUser /var/log/contacts_proj
 mkdir -p /etc/opt/contacts_proj
 mkdir -p /var/cache/contacts_proj/static
 mkdir -p /var/opt/contacts_proj/media
-chown DDjUser /var/opt/contacts_proj/media
-chown DDjUser /var/cache/contacts_proj/static/
+
 
 #Place config files
 cp -r ""$repo_root/conf/contacts_proj /etc/opt/
@@ -32,14 +30,19 @@ cp ""$repo_root/scripts/* /opt/contacts_proj/venv/scripts
 
 #Place webapp files
 cp -r ""$repo_root/webapp/contacts_proj /opt/
-chown DDjUser /var/opt/contacts_proj
+cp -r ""$repo_root/media /var/opt/contacts_proj/media
+cp -r ""$repo_root/static /var/cache/contacts_proj/static
 
+chown DDjUser /var/opt/contacts_proj
+chown DDjUser /var/log/contacts_proj
+chown DDjUser /var/opt/contacts_proj/media
+chown DDjUser /var/cache/contacts_proj/static/
+chgrp DDjUser /etc/opt/contacts_proj
 
 cd /opt/contacts_proj/venv
 source bin/activate
-pip install -r /var/opt/contacts_proj/requirements.txt
+pip install -r /opt/contacts_proj/requirements.txt
 
-chgrp DDjUser /etc/opt/contacts_proj
 chmod u=rwx,g=rx,o= /etc/opt/contacts_proj
 /opt/contacts_proj/venv/bin/python -m compileall /etc/opt/contacts_proj
 
