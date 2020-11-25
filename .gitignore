@@ -11,8 +11,8 @@ venv/
 *.db
 *.sqlite3
 
-# Static Folder
-static
+# Media Folder
+media
 
 #Sensitive Files
 secret_settings.py
