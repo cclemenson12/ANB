@@ -3,7 +3,7 @@
 # Git repo location
 repo_root="~/ANB_Repo" #replace with the root of your ANB Git repository
 
-
+trap 'echo "# $BASH_COMMAND"' DEBUG
 mkdir -p /opt/contacts_proj/
 mkdir -p /opt/contacts_proj/venv && cd /opt/contacts_proj/venv
 virtualenv -p python3 .
@@ -17,3 +17,5 @@ mkdir -p /var/cache/contacts_proj/static
 mkdir -p /var/opt/contacts_proj/media
 chown DDjUser /var/opt/contacts_proj/media
 chown DDjUser /var/cache/contacts_proj/static/
+
+trap - DEBUG
