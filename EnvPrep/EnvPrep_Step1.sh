@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Git repo location
-repo_root="~/ANB_Repo/ANB" #replace with the root of your ANB Git repository
+repo_root="/root/ANB_Repo/ANB" #replace with the root of your ANB Git repository
 
 trap 'echo "# $BASH_COMMAND"' DEBUG
 #Install base requirements
