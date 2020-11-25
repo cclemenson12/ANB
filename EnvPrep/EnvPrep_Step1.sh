@@ -5,7 +5,7 @@ repo_root="~/ANB_Repo" #replace with the root of your ANB Git repository
 
 trap 'echo "# $BASH_COMMAND"' DEBUG
 #Install base requirements
-apt-get install python3-pip python3-virtualenv python3-setuptools python3-dev build-essential python3
+apt-get install python3-pip python3-virtualenv python3-setuptools python3-dev build-essential python3 nginx-light gunicorn
 
 mkdir -p /opt/contacts_proj/
 mkdir -p /opt/contacts_proj/venv && cd /opt/contacts_proj/venv
@@ -20,5 +20,8 @@ mkdir -p /var/cache/contacts_proj/static
 mkdir -p /var/opt/contacts_proj/media
 chown DDjUser /var/opt/contacts_proj/media
 chown DDjUser /var/cache/contacts_proj/static/
+
+#cd /opt/contacts_proj/venv
+#source bin/activate
 
 trap - DEBUG
