@@ -17,5 +17,3 @@ mkdir -p /var/cache/contacts_proj/static
 mkdir -p /var/opt/contacts_proj/media
 chown DDjUser /var/opt/contacts_proj/media
 chown DDjUser /var/cache/contacts_proj/static/
-
-cp ""$repo_root/conf/
