@@ -24,14 +24,14 @@ cp -r ""$repo_root/conf/contacts_proj /etc/opt/
 cp ""$repo_root/conf/nginx/* /etc/nginx/sites-available/
 cp ""$repo_root/conf/gunicorn/* /etc/systemd/system/
 
+systemctl enable contacts_proj
 
 #Place script files
 cp ""$repo_root/scripts/* /opt/contacts_proj/venv/scripts
 
 #Place webapp files
 cp -r ""$repo_root/webapp/contacts_proj /opt/
-cp -r ""$repo_root/media /var/opt/contacts_proj/media
-cp -r ""$repo_root/static /var/cache/contacts_proj/static
+cp -r ""$repo_root/static /var/cache/contacts_proj/
 
 chown DDjUser /var/opt/contacts_proj
 chown DDjUser /var/log/contacts_proj
@@ -45,6 +45,13 @@ pip install -r /opt/contacts_proj/requirements.txt
 
 chmod u=rwx,g=rx,o= /etc/opt/contacts_proj
 /opt/contacts_proj/venv/bin/python -m compileall /etc/opt/contacts_proj
+
+cd /opt/contacts_proj
+source venv/bin/activate
+export PYTHONPATH=/etc/opt/contacts_proj:/opt/contacts_proj
+export DJANGO_SETTINGS_MODULE=settings
+python3 manage.py makemigrations
+python3 manage.py migrate
 
 
 trap - DEBUG
