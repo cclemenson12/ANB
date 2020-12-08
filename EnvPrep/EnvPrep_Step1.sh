@@ -17,6 +17,7 @@ mkdir -p /var/log/contacts_proj
 mkdir -p /etc/opt/contacts_proj
 mkdir -p /var/cache/contacts_proj/static
 mkdir -p /var/opt/contacts_proj/media
+touch /var/log/contacts_proj/djangodebug.log
 
 
 #Place config files
@@ -33,11 +34,12 @@ cp ""$repo_root/scripts/* /opt/contacts_proj/venv/scripts
 cp -r ""$repo_root/webapp/contacts_proj /opt/
 cp -r ""$repo_root/static /var/cache/contacts_proj/
 
-chown DDjUser /var/opt/contacts_proj
-chown DDjUser /var/log/contacts_proj
-chown DDjUser /var/opt/contacts_proj/media
-chown DDjUser /var/cache/contacts_proj/static/
-chgrp DDjUser /etc/opt/contacts_proj
+chown -R DDjUser /var/opt/contacts_proj
+chown -R DDjUser /var/log/contacts_proj
+chown -R DDjUser /var/log/contacts_proj/djangodebug.log
+chown -R DDjUser /var/opt/contacts_proj/media
+chown -R DDjUser /var/cache/contacts_proj/static/
+chgrp -R DDjUser /etc/opt/contacts_proj
 
 source /opt/contacts_proj/venv/bin/activate
 pip install -r /opt/contacts_proj/requirements.txt
