@@ -1,0 +1,16 @@
+[Unit]
+Description=contacts_proj
+
+[Service]
+User=DDjUser
+Group=DDjUser
+Environment="PYTHONPATH=/etc/opt/contacts_proj:/opt/contacts_proj/"
+Environment="DJANGO_SETTINGS_MODULE=settings"
+ExecStart=/opt/contacts_proj/venv/bin/gunicorn \
+    --workers=4 \
+    --log-file=/var/log/contacts_proj/gunicorn.log \
+    --bind=127.0.0.1:8000 --bind=[::1]:8000 \
+    contacts_proj.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
