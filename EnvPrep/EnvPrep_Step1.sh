@@ -39,7 +39,7 @@ chown DDjUser /var/opt/contacts_proj/media
 chown DDjUser /var/cache/contacts_proj/static/
 chgrp DDjUser /etc/opt/contacts_proj
 
-source /opt/contacts_proj/venvbin/activate
+source /opt/contacts_proj/venv/bin/activate
 pip install -r /opt/contacts_proj/requirements.txt
 
 chmod u=rwx,g=rx,o= /etc/opt/contacts_proj
