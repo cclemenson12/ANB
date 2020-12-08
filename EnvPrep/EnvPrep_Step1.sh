@@ -53,5 +53,9 @@ export DJANGO_SETTINGS_MODULE=settings
 python3 manage.py makemigrations
 python3 manage.py migrate
 
+cp ""$repo_root/conf/systemdsvc/contacts_proj.service /etc/systemd/system/
+systemctl enable contacts_proj
+systemctl start contacts_proj.service
+
 
 trap - DEBUG
